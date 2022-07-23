@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--========== FAVICON ICONS ==========-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='base_form_style/login.png') }}">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="{{url_for('static', filename='logger_style/singin_form_style.css')}}">
+
+    <title>Sign In</title>
+</head>
+
+<div class="alret_conteiner_body">
+    <!-- flash Massage start -->
+    {% include 'main_alert/alert.html' %}
+    <!-- flash Massage end -->
+</div>
+
+<body>
+
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form action="/login" method="post">
+                    <div class="input-field">
+                        <!-- <input type="text" name="username" placeholder="Enter your User Name" required> -->
+                        {{ form.hidden_tag() }}
+                        {{ form.username }}
+                        <i class="uil uil-user-circle"></i>
+                    </div>
+                    <div class="input-field">
+                        <!-- <input type="password" name="passward" class="password" placeholder="Enter your password" required> -->
+                        {{ form.password }}
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Remember me</label>
+                        </div>
+
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <!-- <input type="submit" value="Login"> -->
+                        {{ form.submit }}
+                    </div>
+                </form>
+                <!-- <div class="login-signup">
+                    <span class="text">You Don't have an account?
+                        <a href="{{ url_for('userlist.user') }}" class="text signup-link">Signup now</a>
+                    </span>
+                </div> -->
+            </div>
+
+            <!-- Registration Form -->
+            <!-- <div class="form signup">
+                <span class="title">Registration</span>
+
+                <form action="/register" method="post">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your name" required>
+                        {{ form.hidden_tag() }}
+                        {{ form.username }}
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your email" required>
+                        {{ form.email }}
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Create a password" required>
+                        {{ form.password }}
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Confirm a password" required>
+                        {{ form.con_password }}
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="sigCheck">
+                            <label for="sigCheck" class="text">Remember me</label>
+                        </div>
+                        
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Save">
+                        {{ form.submit }}
+                    </div>
+                </form>
+                <div class="login-signup">
+                    <span class="text">Are you already a member?
+                        <a href="#" class="text login-link">LogIn now</a>
+                    </span>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='logger_style/script.js')}}"></script>
+
+</body>
+
+<!-- Footer -->
+<footer class="footer">
+    <!-- <li class="list-inline-item"><a href="#"><i class='bx bxl-linkedin-square'></i></a></li> -->
+    <p class="text-muted">Copyright &copy;Shariat Sunny 2022. All Rights Reserved.</p>
+</footer>
+<!-- Footer End -->
+</html>

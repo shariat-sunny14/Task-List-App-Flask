@@ -1,0 +1,364 @@
+{% extends 'base_form/base.html' %}
+{% include 'extra_link/add_requirement_css_style_link.html' %}
+{% block title %} Requirements List {% endblock %}
+{% block body %}
+
+<!--========== CONTENTS ==========-->
+<main>
+    <section>
+        <div class="req_status_header">
+            <h1>Requirements List</h1>
+            <div class="back-to-home">
+                <div class="back-botton">
+                    <a href="/dashboard">
+                        <button class="homebtn"><i class='bx bx-home'></i>Home</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="accordion" id="checkbox-container">
+            <!-- Registrtion tab start -->
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle1" class="accordion-toggle" name="toggle">
+                <label for="toggle1">1. Registation</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <div class="col-xl-12 col-md-6">
+                        <div class="table_header">
+                            <div class="add-medicine-botton">
+                                <div class="add-botton">
+                                    <button type="button" class="useraddbtn" data-bs-toggle="modal"
+                                        data-bs-target="#add_registration_service_data"><i
+                                            class='bx bx-add-to-queue'></i>Add</button>
+                                </div>
+                            </div>
+                            <form action="/add/registration/data" method="POST">
+                                <div class="table-body">
+                                    <table id="data" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="delete-class">Action</th>
+                                                <th scope="col">S/N</th>
+                                                <th scope="col" class="des-class">Work Description</th>
+                                                <th scope="col" class="reqby-class">Req. By</th>
+                                                <th scope="col" class="reqtype-class">Req. Type</th>
+                                                <th scope="col" class="status-class">Status</th>
+                                                <th scope="col" class="priority-class">Priority</th>
+                                                <th scope="col" class="devstatus-class">Dev. Status</th>
+                                                <th scope="col" class="qastatus-class">QA Status</th>
+                                                <th scope="col" class="assignedto-class">Assigned to</th>
+                                                <th scope="col" class="hours-class">Hours hrs</th>
+                                                <th scope="col" class="reqdate-class">Req. Date</th>
+                                                <th scope="col" class="startdate-class">Start Date</th>
+                                                <th scope="col" class="enddate-class">End Date</th>
+                                                <th scope="col" class="comments-class">Comments</th>
+                                                <th scope="col" class="referance-class">Reference</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="rowselector">
+                                            {% for row in registration %}
+                                            <tr>
+                                                <td style="text-align:center; background: rgb(203, 224, 230);">
+                                                    <a href="/registration/delete/{{row.id}}"
+                                                        class="btn btn-danger btn-xs"
+                                                        onclick="return confirm('Are You Sure To Delete ?')">X</a>
+                                                </td>
+                                                <td scope="row" style="text-align:center"
+                                                    ondblclick="location.href='#edit/id/service/data{{row.id}}'">{{
+                                                    row.id }}</td>
+                                                <td class="des-class" id="link" style="text-align:left"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target='#edit_work_des_service_data{{row.id}}'>
+                                                    {{ row.work_des }}</td>
+                                                <td class="reqby-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/req_by/service/data{{row.id}}'">{{
+                                                    row.req_by }}</td>
+                                                <td class="reqtype-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/req_type/service/data{{row.id}}'">
+                                                    {{ row.req_type }}
+                                                </td>
+                                                <td id="status_row" class="status-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/status/service/data{{row.id}}'">{{
+                                                    row.status
+                                                    }}</td>
+                                                <td class="priority-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/priority/service/data{{row.id}}'">
+                                                    {{ row.priority }}
+                                                </td>
+                                                <td class="devstatus-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/dev_status/service/data{{row.id}}'">
+                                                    {{ row.dev_status
+                                                    }}</td>
+                                                <td class="qastatus-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/qa_status/service/data{{row.id}}'">
+                                                    {{ row.qa_status }}
+                                                </td>
+                                                <td class="assignedto-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/assigned_to/service/data{{row.id}}'">
+                                                    {{
+                                                    row.assigned_to }}</td>
+                                                <td class="hours-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/hours/service/data{{row.id}}'">{{
+                                                    row.hours }}</td>
+                                                <td class="reqdate-class" style="text-align:center">{{ row.req_date }}
+                                                </td>
+                                                <td class="startdate-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/start_date/service/data{{row.id}}'">
+                                                    {{ row.start_date
+                                                    }}</td>
+                                                <td class="enddate-class" style="text-align:center"
+                                                    ondblclick="location.href='#edit/end_date/service/data{{row.id}}'">
+                                                    {{ row.end_date }}
+                                                </td>
+                                                <td class="comments-class" style="text-align:left"
+                                                    ondblclick="location.href='#edit/comments/service/data{{row.id}}'">
+                                                    {{ row.comments }}
+                                                </td>
+                                                <td class="referance-class" style="text-align:left"
+                                                    ondblclick="location.href='#edit/referance/service/data{{row.id}}'">
+                                                    {{ row.referance }}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <!-- Registrtion tab end -->
+            <!-- Prescription tab start -->
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle2" class="accordion-toggle" name="toggle">
+                <label for="toggle2">2. Prescription</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <div class="col-xl-12 col-md-6">
+                        <div class="table_header">
+                            <div class="add-medicine-botton">
+                                <div class="add-botton">
+                                    <button type="button" class="useraddbtn" data-bs-toggle="modal"
+                                        data-bs-target="#add_prescription_service_data"><i
+                                            class='bx bx-add-to-queue'></i>Add</button>
+                                </div>
+                            </div>
+                            <form action="/add/prescription/data" method="POST">
+                                <div class="table-body">
+                                    <table id="prescription_data" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="delete-class">Action</th>
+                                                <th scope="col">S/N</th>
+                                                <th scope="col" class="des-class">Work Description</th>
+                                                <th scope="col" class="reqby-class">Req. By</th>
+                                                <th scope="col" class="reqtype-class">Req. Type</th>
+                                                <th scope="col" class="status-class">Status</th>
+                                                <th scope="col" class="priority-class">Priority</th>
+                                                <th scope="col" class="devstatus-class">Dev. Status</th>
+                                                <th scope="col" class="qastatus-class">QA Status</th>
+                                                <th scope="col" class="assignedto-class">Assigned to</th>
+                                                <th scope="col" class="hours-class">Hours</th>
+                                                <th scope="col" class="reqdate-class">Req. Date</th>
+                                                <th scope="col" class="startdate-class">Start Date</th>
+                                                <th scope="col" class="enddate-class">End Date</th>
+                                                <th scope="col" class="comments-class">Comments</th>
+                                                <th scope="col" class="referance-class">Reference</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="rowselector">
+                                            {% for row in prescription %}
+                                            <tr>
+                                                <td style="text-align:center; background: rgb(203, 224, 230);">
+                                                    <a href="/prescription/delete/{{row.id}}"
+                                                        class="btn btn-danger btn-xs"
+                                                        onclick="return confirm('Are You Sure To Delete ?')">X</a>
+                                                </td>
+                                                <td scope="row" style="text-align:center">{{ row.id }}</td>
+                                                <td class="des-class" style="text-align:left">{{ row.work_des }}</td>
+                                                <td class="reqby-class" style="text-align:center">{{ row.req_by }}</td>
+                                                <td class="reqtype-class" style="text-align:center">{{ row.req_type }}
+                                                </td>
+                                                <td class="status-class" style="text-align:center">{{ row.status }}</td>
+                                                <td class="priority-class" style="text-align:center">{{ row.priority }}
+                                                </td>
+                                                <td class="devstatus-class" style="text-align:center">{{ row.dev_status
+                                                    }}</td>
+                                                <td class="qastatus-class" style="text-align:center">{{ row.qa_status }}
+                                                </td>
+                                                <td class="assignedto-class" style="text-align:center">{{
+                                                    row.assigned_to }}</td>
+                                                <td class="hours-class" style="text-align:center">{{ row.hours }}</td>
+                                                <td class="reqdate-class" style="text-align:center">{{ row.req_date }}
+                                                </td>
+                                                <td class="startdate-class" style="text-align:center">{{ row.start_date
+                                                    }}</td>
+                                                <td class="enddate-class" style="text-align:center">{{ row.end_date }}
+                                                </td>
+                                                <td class="comments-class" style="text-align:left">{{ row.comments }}
+                                                </td>
+                                                <td class="referance-class" style="text-align:left">{{ row.referance }}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <!-- Prescription tab end-->
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle3" class="accordion-toggle" name="toggle">
+                <label for="toggle3">3. Registation 3</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle4" class="accordion-toggle" name="toggle">
+                <label for="toggle4">4. Registation 4</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle5" class="accordion-toggle" name="toggle">
+                <label for="toggle5">5. Registation 5</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle6" class="accordion-toggle" name="toggle">
+                <label for="toggle6">6. Registation 6</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle7" class="accordion-toggle" name="toggle">
+                <label for="toggle7">7. Registation 7</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle8" class="accordion-toggle" name="toggle">
+                <label for="toggle8">8. Registation 8</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle9" class="accordion-toggle" name="toggle">
+                <label for="toggle9">9. Registation 9</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle10" class="accordion-toggle" name="toggle">
+                <label for="toggle10">10. Registation 10</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle11" class="accordion-toggle" name="toggle">
+                <label for="toggle11">11. Registation 11</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle12" class="accordion-toggle" name="toggle">
+                <label for="toggle12">12. Registation 12</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle13" class="accordion-toggle" name="toggle">
+                <label for="toggle13">13. Registation 13</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle14" class="accordion-toggle" name="toggle">
+                <label for="toggle14">14. Registation 14</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle15" class="accordion-toggle" name="toggle">
+                <label for="toggle15">15. Registation 15</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle16" class="accordion-toggle" name="toggle">
+                <label for="toggle16">16. Registation 16</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- add req registration modal start -->
+    {% include 'requirements_list/add_edit_data_registration.html' %}
+    <!-- add req registration modal end -->
+    <!-- add req prescription modal start -->
+    {% include 'requirements_list/add_edit_data_prescription.html' %}
+    <!-- add req prescription modal end -->
+</main>
+
+<!--========== MAIN JS ==========-->
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- manual srcpt link sart -->
+<script src="{{url_for('static', filename='add_requirement_style/js/add_requirement.js')}}"></script>
+<!-- manual srcpt link end -->
+{% endblock %}

@@ -1,0 +1,141 @@
+@media (min-width: 500px){
+    .d-sm-flex {
+        display: flex!important;
+        margin-top: 35px;
+        margin-bottom: -8px;
+    }
+}
+
+.row {
+    margin-left: calc(var(--bs-gutter-x)/ 2);
+    margin-top: -5px;
+}
+
+.container-fluid {
+    margin-bottom: 50px;
+}
+
+.req_status_header {
+    position: fixed;
+    display: flex;
+    margin-left: -50px;
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 0 1rem 2.8rem 0;
+    justify-content: space-between;
+    background: rgb(70, 116, 143);
+    width: 94.7%;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.req_status_header h1 {
+    position: absolute;
+    margin-top: 12px;
+    font-size: 18px;
+    margin-left: 25px;
+}
+
+/* back to home start */
+.back-to-home .back-botton {
+    position: fixed;
+    display: flex;
+    right: 15px;
+}
+
+.back-to-home .back-botton .homebtn {
+    margin-top: 6px;
+    display: flex;
+    /* margin-right: 40px; */
+    width: 85px;
+    padding: 6px;
+    border-top: none;
+    border-left: none;
+    border-radius: 50px;
+    outline: none;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: #cfa612;
+}
+
+.back-to-home .back-botton a {
+    outline-width: none;
+    border-radius: 50px;
+}
+
+.back-to-home .back-botton .homebtn i {
+    position: relative;
+    display: flex;
+    font-size: 20px;
+    bottom: 1px;
+    left: -5px;
+    align-items: center;
+    justify-content: left;
+}
+
+.back-to-home .back-botton .homebtn:hover {
+    background: #be9b0f;
+}
+
+/* back to home end */
+
+
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df!important;
+}
+
+.border-left-warning {
+    border-left: 0.25rem solid #f6c23e!important;
+}
+
+.border-left-info {
+    border-left: 0.25rem solid #36b9cc!important;
+}
+
+.border-left-success {
+    border-left: 0.25rem solid #1cc88a!important;
+}
+
+.text-gray-300 {
+    color: #dddfeb!important;
+}
+
+.bx-book, .bx {
+    font-weight: 900;
+}
+
+.bx-book, .far, .bx {
+    font-family: "Font Awesome 5 Free";
+}
+
+.fa-2x {
+    font-size: 2em;
+}
+
+.req-head {
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.req-head {
+    font-size: 18px;
+    padding-top: 2px;
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.req-head-icon {
+    font-size: 25px;
+    padding-top: 7px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.mb-4 {
+    margin-bottom: 1rem!important;
+}

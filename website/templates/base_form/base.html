@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="{{url_for('static', filename='base_form_style/base_style.css')}}">
+
+    <title>{% block title %} {% endblock %} </title>
+</head>
+
+<body>
+    <!--========== HEADER ==========-->
+    <header class="header">
+        <div class="header__container">
+            {% if current_user.user_img %}
+            <img src="{{url_for('static', filename='user_image/' + current_user.user_img)}}" class="header__img">
+            {% else %}
+            <img src="{{url_for('static', filename='user_image/default_pro_pic.png')}}" class="header__img">
+            {% endif %}
+
+            <a class="header__logo">Implementation Team</a>
+
+            <div class="title_user_name">
+                {% if current_user.is_authenticated %}
+                <h3>
+                    {{ current_user.first_name }}
+                    {{ current_user.last_name }}
+                </h3>
+                {% endif %}
+            </div>
+
+
+            <!-- <div class="header__search">
+                <input type="search" placeholder="Search" class="header__input">
+                <i class='bx bx-search header__icon'></i>
+            </div> -->
+
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </div>
+        <div class="alret_conteiner_body">
+            <!-- flash Massage start -->
+            {% include 'main_alert/alert.html' %}
+            <!-- flash Massage end -->
+        </div>
+    </header>
+
+    <!--========== NAV ==========-->
+    <div class="nav close" id="navbar">
+        <nav class="nav__container">
+            <div>
+                <a href="#" class="nav__link nav__logo">
+                    <i class='bx bxs-disc nav__icon'></i>
+                    <span class="nav__logo-name">Apps</span>
+                </a>
+
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <h3 class="nav__subtitle">Modules</h3>
+
+                        <div class="nav__dropdown">
+                            <a href="/dashboard" class="nav__link">
+                                <i class='bx bx-home nav__icon'></i>
+                                <span class="nav__name">Dashboard</span>
+                                <!-- <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i> -->
+                            </a>
+
+                            <!-- <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a href="/dashboard" class="nav__dropdown-item">Home Dashboard</a>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="nav__dropdown">
+                            <a href="/requirement" class="nav__link">
+                                <i class='bx bx-folder nav__icon'></i>
+                                <span class="nav__name">Add Requirements</span>
+                                <!-- <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i> -->
+                            </a>
+
+                            <!-- <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a href="/reqdashboard" class="nav__dropdown-item">Dashboard</a>
+                                    <a href="/requirement" class="nav__dropdown-item">Add Requirements</a>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="nav__dropdown">
+                            <a href="/reqdashboard" class="nav__link">
+                                <i class='bx bx-bar-chart-square nav__icon'></i>
+                                <span class="nav__name">Activities Dashboard</span>
+                                <!-- <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i> -->
+                            </a>
+                        </div>
+
+                        <div class="nav__dropdown">
+                            <a href="/user" class="nav__link">
+                                <i class='bx bx-cog nav__icon'></i>
+                                <span class="nav__name">User List</span>
+                                <!-- <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i> -->
+                            </a>
+
+                            <!-- <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a href="/user" class="nav__dropdown-item">User List</a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- =========================================================== -->
+            <!-- <div class="nav__list">
+                <div class="nav__items">
+                    <h3 class="nav__subtitle">Massage System</h3>
+
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-home nav__icon'></i>
+                            <span class="nav__name">Chatings</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="" class="nav__dropdown-item">Chat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+
+            <a href="#logout/option" class="nav__link nav__logout">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+
+            <!-- dark mode start -->
+
+            <!-- dark mode end -->
+        </nav>
+    </div>
+
+    <!--========== CONTENTS ==========-->
+    {% block body %} {% endblock %}
+
+    <!-- log out popup start -->
+    <div id="logout/option" class="logout-modal">
+        <div class="logout-modal-dialog">
+            <div class="logout-modal-content">
+                <div class="logout-modal-header">
+                    <header>Log Out</header>
+                    <a href="#" class="closeb">&times;</a>
+                </div>
+                <div class="logout-modal-body">
+                    <p>Are You Sure Want to Log Out</p>
+                    <div class="logout-button">
+                        <a href="/logout">
+                            <button class="btnlogoutyes">Yes</button>
+                        </a>
+                        <a href="">
+                            <button class="btnlogoutno">No</button>
+                        </a>
+                    </div>
+                    <div class="logout-modal-footer">
+                        <header>Design by @Shariat Sunny</header>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- log out popup popup end -->
+    <!--========== MAIN JS ==========-->
+    <script src="{{url_for('static', filename='main_dashboard_style/js/main.js')}}"></script>
+</body>
+
+<!-- Footer -->
+<footer class="footer">
+    <!-- <li class="list-inline-item"><a href="#"><i class='bx bxl-linkedin-square'></i></a></li> -->
+    <p class="text-muted">Copyright &copy;Shariat Sunny 2022. All Rights Reserved.</p>
+</footer>
+<!-- Footer End -->
+
+</html>

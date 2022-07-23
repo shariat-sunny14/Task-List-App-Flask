@@ -1,0 +1,29 @@
+.alert {
+    background-color: #ab9f0ef5;
+    color: rgb(237 237 237);
+    width: fit-content;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 28px;
+    line-height: 23px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: rgb(102, 1, 1);
+}
+
+.alret_conteiner_body{
+    position: absolute;
+    top: 30px;
+    right: 2px;
+    bottom: 0;
+    width: fit-content;
+    background: none;
+}

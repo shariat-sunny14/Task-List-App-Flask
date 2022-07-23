@@ -1,0 +1,353 @@
+{% extends 'base_form/base.html' %}
+{% include 'extra_link/user_list_css_style_link.html' %}
+{% block title %} User List {% endblock %}
+{% block body %}
+<!--========== CONTENTS ==========-->
+<main>
+  <section>
+    <div class="table_header">
+      <h1>User List</h1>
+      <div class="back-to-home">
+        <div class="back-botton">
+          <a href="/dashboard">
+            <button class="homebtn"><i class='bx bx-home'></i>Home</button>
+          </a>
+        </div>
+      </div>
+      <div class="add-medicine-botton">
+        <div class="add-botton">
+          <button type="button" class="useraddbtn" data-bs-toggle="modal" data-bs-target="#adduser-popup-box"><i
+              class='bx bx-add-to-queue'></i>Add</button>
+        </div>
+      </div>
+    </div>
+    <form action="/user" method="POST">
+      <div class="table-body">
+        <table id="data" class="table table-striped">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>S/N</th>
+              <th>Reg. Date</th>
+              <th>User ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>User Name</th>
+              <th>Deptartment</th>
+              <th>Email</th>
+              <!-- <th>Address</th> -->
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rowselector">
+            {% for row in users %}
+            <tr>
+              <td style="text-align:center; background: rgb(203, 224, 230);">
+                <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs"
+                  onclick="return confirm('Are You Sure To Delete ?')">X</a>
+              </td>
+              <td style="text-align:center">{{ row.id }}</td>
+              <td style="text-align:center">{{ row.datetime }}</td>
+              <td style="text-align:center">{{ row.users_id }}</td>
+              <td style="text-align:left">{{ row.first_name }}</td>
+              <td style="text-align:left">{{ row.last_name }}</td>
+              <td style="text-align:center">{{ row.username }}</td>
+              <td style="text-align:left">{{ row.dept }}</td>
+              <td style="text-align:left">{{ row.email }}</td>
+              <!-- <td>{{ row.address }}</td> -->
+              <td style="text-align:center">
+                <!-- <a href="#edituser-popup-box{{row.id}}" class="btn btn-primary">Edit</a> -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#edituser-popup-box{{row.id}}">Edit</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                  data-bs-target="#password-popup-box{{row.id}}">Password</button>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                  data-bs-target="#image_modal-box{{row.id}}">Image</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </form>
+
+    <!-- User add setup popup start -->
+    <div class="modal fade" id="adduser-popup-box" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content_editall">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit User Info</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="{{ url_for('userlist.user_register') }}" method="POST" enctype="multipart/form-data">
+              <div class="container">
+                <div class="row_editall">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="users_id" class="col-form-label required">User ID</label>
+                      {{ form.hidden_tag() }}
+                      <input type="text" class="form-control" id="users_id" name="users_id"
+                        placeholder="Enter User Id Here" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="first_name" class="col-form-label required">First Name</label>
+                      <input type="text" class="form-control" id="first_name" name="first_name"
+                        placeholder="Enter First Name Here" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="last_name" class="col-form-label required">Last Name</label>
+                      <input type="text" class="form-control" id="last_name" name="last_name"
+                        placeholder="Enter Last Name Here" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row_editall">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="username" class="col-form-label required">User Name</label>
+                      <input type="text" class="form-control" id="username" name="username"
+                        placeholder="Enter User Name Here" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="dept" class="col-form-label">Dept. Name</label>
+                      <input type="text" class="form-control" id="dept" name="dept" placeholder="Enter User Name Here">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="mobile_number" class="col-form-label">Mobile Number</label>
+                      <input type="text" class="form-control" id="mobile_number" name="mobile_number"
+                        placeholder="Enter Mobile Number Here">
+                    </div>
+                  </div>
+                </div>
+                <div class="row_editall">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="email" class="col-form-label required">Email address</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                        required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="address" class="col-form-label">Address</label>
+                      <textarea class="form-control" id="address" name="address" placeholder="Enter Address Here"
+                        style="height: 38px;"></textarea>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="password" class="col-form-label required">Password</label>
+                      <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Enter password Here" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row_editall">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="user_img" id="user_img_title" class="col-form-label required">Picture</label>
+                      <input type="file" class="form-control" id="user_img" name="user_img" value="Upload" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer_editall">
+                <button name="submit" type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- User add setup popup end -->
+
+    <!-- User edit setup popup start -->
+    {% for row in users %}
+    <div class="modal fade" id="edituser-popup-box{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content_editall">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit User Info</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="{{ url_for('userlist.update') }}">
+              <div class="container">
+                <div class="row_editall">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label required">User ID</label>
+                      <input type="hidden" name="id" value="{{row.id}}">
+                      <input type="text" class="form-control" name="users_id" value="{{row.users_id}}"
+                        placeholder="Update User Id Here" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label required">First Name</label>
+                      <input type="text" class="form-control" name="first_name" value="{{row.first_name}}"
+                        placeholder="Update First Name Here" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label required">Last Name</label>
+                      <input type="text" class="form-control" name="last_name" value="{{row.last_name}}"
+                        placeholder="Update Last Name Here" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row_editall">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label required">User Name</label>
+                      <input type="text" class="form-control" name="username" value="{{row.username}}"
+                        placeholder="Update User Name Here" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label">Dept. Name</label>
+                      <input type="text" class="form-control" name="dept" value="{{row.dept}}"
+                        placeholder="Update User Name Here">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label">Mobile Number</label>
+                      <input type="text" class="form-control" name="mobile_number" value="{{row.mobile_number}}"
+                        placeholder="Update Mobile Number Here">
+                    </div>
+                  </div>
+                </div>
+                <div class="row_editall">
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label required">Email address</label>
+                      <input type="email" class="form-control" name="email" value="{{row.email}}"
+                        placeholder="name@example.com">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label class="col-form-label">Address</label>
+                      <textarea class="form-control" name="address" placeholder="Update Address Here"
+                        style="height: 38px;">{{row.address}}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer_editall">
+                <button name="submit" type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- User edit setup popup end -->
+    <!-- User password change popup start -->
+    <!-- Modal -->
+    {% for row in users %}
+    <div class="modal fade" id="password-popup-box{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="{{ url_for('userlist.update_password') }}">
+              <div class="mb-3">
+                <label class="form-label required">Password</label>
+                <input type="hidden" name="id" value="{{row.id}}">
+                <input class="form-control" name="password" value="" placeholder="Reset Password Enter here ...."
+                  required>
+              </div>
+              <div class="modal-footer">
+                <button name="submit" type="submit" value="Save" class="btn btn-success">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- User password change popup end -->
+
+    <!-- Image Edit modal start -->
+    <!-- Modal -->
+    {% for row in users %}
+    <div class="modal fade" id="image_modal-box{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content_image">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label required">Picture</label>
+                <input type="file" class="form-control" name="" value="" placeholder="Choose Your image" required>
+              </div>
+              <div class="modal-footer_image">
+                <button type="button" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <!-- Image Edit modal end -->
+  </section>
+</main>
+<!--========== MAIN JS ==========-->
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8"
+  src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#data').DataTable({
+      columns: [
+        null,
+        { searchable: true },
+        { orderable: true, searchable: true },
+        { orderable: true, searchable: true },
+        { orderable: true, searchable: true },
+        { orderable: true, searchable: true },
+        { orderable: true, searchable: true },
+        { orderable: true, searchable: true },
+        { orderable: true, searchable: true },
+        null]
+    });
+  });
+</script>
+<!-- row data select script start -->
+<script>
+  $('#data').on('click', 'tbody tr', function (event) {
+    $(this).addClass('highlight').siblings().removeClass('highlight');
+  });
+</script>
+<!-- row data select script end -->
+<script>
+  
+</script>
+{% endblock %}

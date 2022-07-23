@@ -1,0 +1,14 @@
+{% include 'extra_link/main_alert_style_extra_link.html' %}
+
+<!-- flash Massage start -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    {{ message }}
+  </div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<!-- flash Massage end -->

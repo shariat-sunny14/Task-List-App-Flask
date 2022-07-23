@@ -1,0 +1,119 @@
+{% extends 'base_form/base.html' %}
+{% include 'extra_link/reqdashboard_css_style_link.html' %}
+{% block title %} Req. Dashboard {% endblock %}
+{% block body %}
+<!--========== CONTENTS ==========-->
+<main>
+    <section>
+        <div class="row">
+            <div class="col col-md-4 col-md-6 col-md-8 col-md-12 mb-2">
+                <div class="req_status_header">
+                    <div class="req-flex">
+                        <h1>Req. Dashboard</h1>
+                    </div>
+                    
+                    <div class="back-to-home">
+                        <div class="back-botton">
+                            <a href="/dashboard">
+                                <button class="homebtn"><i class='bx bx-home'></i>Home</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col col-md-4 col-md-6">
+                    <div class="d-sm-flex align-items-center">
+                        <i class='bx bx-scatter-chart text-info req-head-icon'></i>
+                        <h1 class="h3 text-info req-head">Total Req. Status</h1>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <!-- total Reg. Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Req.</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class='bx bx-book-alt fa-2x text-primary'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- total done req. Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Total Req. Done</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class='bx bx-calendar-check fa-2x text-success'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- total pending req. Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                        Total Req. Pending</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class='bx bxs-hourglass-bottom fa-2x text-info'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- total bugs req. Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Total Bugs</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class='bx bx-bug fa-2x text-warning'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!--========== MAIN JS ==========-->
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--========== CONTENTS END==========-->
+{% endblock %}

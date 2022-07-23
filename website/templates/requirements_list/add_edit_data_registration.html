@@ -1,0 +1,635 @@
+<!-- add req registration modal start -->
+<div class="modal fade" id="add_registration_service_data" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Requirements</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('add_requirement.add_registration_data') }}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="work_des" class="col-form-label required">Work Description</label>
+                                    {{ form.hidden_tag() }}
+                                    <textarea class="form-control" id="work_des" name="work_des"
+                                        placeholder="Enter Your Work Description Here"
+                                        style="height: 100px; width:109.2%;" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row_select">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="req_type" class="col-form-label required">Req. Type</label>
+                                    <select class="form-select" id="req_type" name="req_type" aria-label="Default select example" required>
+                                        <option value="" class="option_click" disabled selected hidden>Click Here</option>
+                                        <option value="New Req.">New Req.</option>
+                                        <option value="Policy">Policy</option>
+                                        <option value="Reports">Reports</option>
+                                        <option value="Bugs">Bugs</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="status" class="col-form-label required">Status</label>
+                                    <select class="form-select" id="status" name="status" aria-label="Default select example" required>
+                                        <option value="" class="option_click" disabled selected hidden>Click Here</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Done">Done</option>
+                                        <option value="Not Done">Half Done</option>
+                                        <option value="Half Done">Not Done</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="priority" class="col-form-label required">Priority</label>
+                                    <select class="form-select" id="priority" name="priority" aria-label="Default select example" required>
+                                        <option value="" class="option_click" disabled selected hidden>Click Here</option>
+                                        <option value="Very High">Very High</option>
+                                        <option value="High">High</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Very Low">Very Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="dev_status" class="col-form-label required">Dev. Status</label>
+                                    <select class="form-select" id="dev_status" name="dev_status" aria-label="Default select example" required>
+                                        <option value="" class="option_click" disabled selected hidden>Click Here</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Done">Done</option>
+                                        <option value="Not Done">Half Done</option>
+                                        <option value="Half Done">Not Done</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="qa_status" class="col-form-label required">QA Status</label>
+                                    <select class="form-select" id="qa_status" name="qa_status" aria-label="Default select example" required>
+                                        <option value="" class="option_click" disabled selected hidden>Click Here</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Done">Done</option>
+                                        <option value="Not Done">Half Done</option>
+                                        <option value="Half Done">Not Done</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row_input">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="req_by" class="col-form-label">Req. By</label>
+                                    <input type="text" class="form-control" id="req_by" name="req_by"
+                                        placeholder="Enter User Req. by Here">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="assigned_to" class="col-form-label">Assigned to</label>
+                                    <input type="text" class="form-control" id="assigned_to" name="assigned_to"
+                                        placeholder="Enter Assigned to Here">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="hours" class="col-form-label">Hours</label>
+                                    <input type="text" class="form-control" id="hours" name="hours"
+                                        placeholder="Enter Hours Here">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="start_date" class="col-form-label">Start Date</label>
+                                    <input type="date" class="form-control" id="start_date" name="start_date"
+                                        placeholder="Enter Start Date Here">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="end_date" class="col-form-label">End Date</label>
+                                    <input type="date" class="form-control" id="end_date" name="end_date"
+                                        placeholder="Enter End Date Here">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row_textarea">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="comments" class="col-form-label">Comments</label>
+                                    <textarea class="form-control" id="comments" name="comments"
+                                        placeholder="Enter Your comments Here" style="height: 100px;"></textarea>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="referance" class="col-form-label">Reference</label>
+                                    <textarea class="form-control" id="referance" name="referance"
+                                        placeholder="Enter Reference Here" style="height: 100px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer_add_data">
+                        <button name="submit" type="submit" class="btn btn-primary btn_placement">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add req registration modal end -->
+<!-- ======================================== Edit Data ========================================= -->
+<!-- ================== input box Edit Data ============================ -->
+<!-- Edit registration modal start -->
+<!-- id edit -->
+{% for row in registration %}
+<div id="edit/id/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_id_registration_data') }}">
+                <div class="edit_table_row_inputfrom_details">
+                    <div class="table_row_input-box">
+                        <span class="details">S/N</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <input type="number" id="id" name="id" value="{{row.id}}" placeholder="Enter Your S/N Here"
+                            required>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- id edit end -->
+
+<!-- work_des edit-->
+<!-- {% for row in registration %}
+<div id="edit23214/work_des/service/data{{row.id}}" class="edit_container">
+    <div class="edit_content">
+        <div class="edit_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_work_des_registration_data') }}">
+                <div class="edit_inputfrom_details">
+                    <div class="textarea-box">
+                        <span class="details">Work Description</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <textarea type="text" name="work_des" id="work_des" class="edit_work_des"
+                            placeholder="Enter Your Work Description Here" required>{{row.work_des}}</textarea>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %} -->
+
+
+{% for row in registration %}
+<div class="modal fade" id="edit_work_des_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Your Requirements</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('add_requirement.update_work_des_registration_data') }}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label class="col-form-label required">Work Description</label>
+                                    <input type="hidden" name="id" value="{{ row.id }}">
+                                    <textarea class="form-control" name="work_des"
+                                        placeholder="Enter Your Work Description Here"
+                                        style="height: 100px; width:109.2%;" required>{{row.work_des}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer_add_data">
+                        <button name="submit" type="submit" class="btn btn-primary btn_placement">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<!-- work_des edit end-->
+
+<!-- req_by edit -->
+{% for row in registration %}
+<div id="edit/req_by/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_req_by_registration_data') }}">
+                <div class="edit_table_row_inputfrom_details">
+                    <div class="table_row_input-box">
+                        <span class="details">Req. By</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <input type="text" name="req_by" id="req_by" value="{{row.req_by}}"
+                            placeholder="Enter Your Requirement By Here" required>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- req_by edit end -->
+
+<!-- assigned_to edit -->
+{% for row in registration %}
+<div id="edit/assigned_to/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_assigned_to_registration_data') }}">
+                <div class="edit_table_row_inputfrom_details">
+                    <div class="table_row_input-box">
+                        <span class="details">Assigned to</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <input type="text" name="assigned_to" id="assigned_to" value="{{row.assigned_to}}"
+                            placeholder="Enter Your Requirement By Here" required>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- assigned_to edit end -->
+
+<!-- hours edit -->
+{% for row in registration %}
+<div id="edit/hours/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_hours_registration_data') }}">
+                <div class="edit_table_row_inputfrom_details">
+                    <div class="table_row_input-box">
+                        <span class="details">Hours</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <input type="number" name="hours" id="hours" value="{{row.hours}}"
+                            placeholder="Enter Your Requirement By Here" required>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- hours edit end -->
+
+<!-- start_date edit -->
+{% for row in registration %}
+<div id="edit/start_date/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_start_date_registration_data') }}">
+                <div class="edit_table_row_datefrom_details">
+                    <div class="table_row_date-box">
+                        <span class="details">Req Date</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <input type="date" id="start_date" name="start_date" value="{{ row.start_date }}" required>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- start_date edit end -->
+
+<!-- end_date edit -->
+{% for row in registration %}
+<div id="edit/end_date/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_end_date_registration_data') }}">
+                <div class="edit_table_row_datefrom_details">
+                    <div class="table_row_date-box">
+                        <span class="details">Req Date</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <input type="date" id="end_date" name="end_date" value="{{ row.end_date }}" required>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- end_date edit end -->
+
+<!-- comments edit -->
+{% for row in registration %}
+<div id="edit/comments/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_textarea_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_comments_registration_data') }}">
+                <div class="edit_table_row_datefrom_details">
+                    <div class="table_row_date-box">
+                        <span class="details">Comments</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <textarea class="comments-textarea" id="comments" maxlength="500" name="comments"
+                            placeholder="Confirm Your Password" required>{{ row.comments }}</textarea>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- comments edit end -->
+
+<!-- referance edit -->
+{% for row in registration %}
+<div id="edit/referance/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_textarea_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_referance_registration_data') }}">
+                <div class="edit_table_row_datefrom_details">
+                    <div class="table_row_date-box">
+                        <span class="details">Reference</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <textarea class="comments-textarea" id="referance" maxlength="500" name="referance"
+                            placeholder="Confirm Your Password" required>{{ row.referance }}</textarea>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- referance edit end -->
+
+
+<!-- =========================== selection option edit ========================= -->
+
+<!-- req_type edit -->
+{% for row in registration %}
+<div id="edit/req_type/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_req_type_registration_data') }}">
+                <div class="edit_table_row_selectfrom_details">
+                    <div class="table_row_select-box">
+                        <span class="details">Req. Type</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <select value="{{ row.req_type }}" id="req_type" name="req_type" required>
+                            <option value="" class="option_click" disabled selected hidden>Choose option here</option>
+                            <option value="New Req.">New Req.</option>
+                            <option value="Policy">Policy</option>
+                            <option value="Reports">Reports</option>
+                            <option value="Bugs">Bugs</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- req_type edit end -->
+
+<!-- status edit -->
+{% for row in registration %}
+<div id="edit/status/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_status_registration_data') }}">
+                <div class="edit_table_row_selectfrom_details">
+                    <div class="table_row_select-box">
+                        <span class="details">Status</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <select value="{{ row.status }}" id="status" name="status" required>
+                            <option value="" class="option_click" disabled selected hidden>Choose option here</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Done">Done</option>
+                            <option value="Half Done">Half Done</option>
+                            <option value="Not Done">Not Done</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- status edit end -->
+
+<!-- priority edit -->
+{% for row in registration %}
+<div id="edit/priority/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_priority_registration_data') }}">
+                <div class="edit_table_row_selectfrom_details">
+                    <div class="table_row_select-box">
+                        <span class="details">Priority</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <select value="{{ row.priority }}" id="priority" name="priority" required>
+                            <option value="" class="option_click" disabled selected hidden>Choose option here</option>
+                            <option value="Very High">Very High</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                            <option value="Very Low">Very Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- priority edit end -->
+
+<!-- dev_status edit -->
+{% for row in registration %}
+<div id="edit/dev_status/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_dev_status_registration_data') }}">
+                <div class="edit_table_row_selectfrom_details">
+                    <div class="table_row_select-box">
+                        <span class="details">Dev. Status</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <select value="{{ row.dev_status }}" id="dev_status" name="dev_status" required>
+                            <option value="" class="option_click" disabled selected hidden>Choose option here</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Done">Done</option>
+                            <option value="Half Done">Half Done</option>
+                            <option value="Not Done">Not Done</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- dev_status edit end -->
+
+<!-- qa_status edit -->
+{% for row in registration %}
+<div id="edit/qa_status/service/data{{row.id}}" class="edit_container">
+    <div class="edit_table_row_content">
+        <div class="edit_table_row_content_border">
+            <header>Edit Your Requirements</header>
+        </div>
+        <div class="edit_table_row_details_container">
+            <form method="POST" action="{{ url_for('add_requirement.update_qa_status_registration_data') }}">
+                <div class="edit_table_row_selectfrom_details">
+                    <div class="table_row_select-box">
+                        <span class="details">QA Status</span>
+                        <input type="hidden" name="id" value="{{ row.id }}">
+                        <select value="{{ row.qa_status }}" id="qa_status" name="qa_status" required>
+                            <option value="" class="option_click" disabled selected hidden>Choose option here</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Done">Done</option>
+                            <option value="Half Done">Half Done</option>
+                            <option value="Not Done">Not Done</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="savebutton">
+                    <a href="#">
+                        <input class="inputsavebtn" name="submit" type="submit" value="Save">
+                    </a>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="closeb">&times;</a>
+    </div>
+</div>
+{% endfor %}
+<!-- qa_status edit end -->
+
+<!-- Edit registration modal end -->
