@@ -20,10 +20,11 @@
 
     <section>
         <div class="accordion" id="checkbox-container">
+            <!-- ===================================== Registrtion ====================================== -->
             <!-- Registrtion tab start -->
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle1" class="accordion-toggle" name="toggle">
-                <label for="toggle1">1. Registation</label>
+                <label for="toggle1">01. Registation</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <div class="col-xl-12 col-md-6">
@@ -60,67 +61,44 @@
                                         </thead>
                                         <tbody id="rowselector">
                                             {% for row in registration %}
-                                            <tr>
+                                            <tr class="tablecell">
                                                 <td style="text-align:center; background: rgb(203, 224, 230);">
                                                     <a href="/registration/delete/{{row.id}}"
                                                         class="btn btn-danger btn-xs"
                                                         onclick="return confirm('Are You Sure To Delete ?')">X</a>
                                                 </td>
-                                                <td scope="row" style="text-align:center"
-                                                    ondblclick="location.href='#edit/id/service/data{{row.id}}'">{{
+                                                <td scope="row" style="text-align:center" id="regis_id{{row.id}}">{{
                                                     row.id }}</td>
-                                                <td class="des-class" id="link" style="text-align:left"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target='#edit_work_des_service_data{{row.id}}'>
-                                                    {{ row.work_des }}</td>
+                                                <td class="des-class" style="text-align:left"
+                                                    id="regis_work_des{{row.id}}">{{
+                                                    row.work_des }}</td>
                                                 <td class="reqby-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/req_by/service/data{{row.id}}'">{{
-                                                    row.req_by }}</td>
+                                                    id="regis_req_by{{row.id}}">{{row.req_by }}</td>
                                                 <td class="reqtype-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/req_type/service/data{{row.id}}'">
-                                                    {{ row.req_type }}
-                                                </td>
-                                                <td id="status_row" class="status-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/status/service/data{{row.id}}'">{{
-                                                    row.status
-                                                    }}</td>
+                                                    id="regis_req_type{{row.id}}">{{ row.req_type }}</td>
+                                                <td class="status-class" style="text-align:center"
+                                                    id="regis_status{{row.id}}">{{ row.status }}</td>
                                                 <td class="priority-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/priority/service/data{{row.id}}'">
-                                                    {{ row.priority }}
-                                                </td>
+                                                    id="regis_priority{{row.id}}">{{ row.priority }}</td>
                                                 <td class="devstatus-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/dev_status/service/data{{row.id}}'">
-                                                    {{ row.dev_status
-                                                    }}</td>
+                                                    id="regis_dev_status{{row.id}}">{{ row.dev_status}}</td>
                                                 <td class="qastatus-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/qa_status/service/data{{row.id}}'">
-                                                    {{ row.qa_status }}
-                                                </td>
+                                                    id="regis_qa_status{{row.id}}">{{ row.qa_status }}</td>
                                                 <td class="assignedto-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/assigned_to/service/data{{row.id}}'">
-                                                    {{
-                                                    row.assigned_to }}</td>
+                                                    id="regis_assigned_to{{row.id}}">
+                                                    {{row.assigned_to }}</td>
                                                 <td class="hours-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/hours/service/data{{row.id}}'">{{
-                                                    row.hours }}</td>
+                                                    id="regis_hours{{row.id}}">{{row.hours }}</td>
                                                 <td class="reqdate-class" style="text-align:center">{{ row.req_date }}
                                                 </td>
                                                 <td class="startdate-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/start_date/service/data{{row.id}}'">
-                                                    {{ row.start_date
-                                                    }}</td>
+                                                    id="regis_startdate{{row.id}}">{{ row.start_date}}</td>
                                                 <td class="enddate-class" style="text-align:center"
-                                                    ondblclick="location.href='#edit/end_date/service/data{{row.id}}'">
-                                                    {{ row.end_date }}
-                                                </td>
+                                                    id="regis_enddate{{row.id}}">{{ row.end_date }}</td>
                                                 <td class="comments-class" style="text-align:left"
-                                                    ondblclick="location.href='#edit/comments/service/data{{row.id}}'">
-                                                    {{ row.comments }}
-                                                </td>
+                                                    id="regis_comments{{row.id}}">{{ row.comments }}</td>
                                                 <td class="referance-class" style="text-align:left"
-                                                    ondblclick="location.href='#edit/referance/service/data{{row.id}}'">
-                                                    {{ row.referance }}
-                                                </td>
+                                                    id="regis_referance{{row.id}}">{{ row.referance }}</td>
                                             </tr>
                                             {% endfor %}
                                         </tbody>
@@ -133,10 +111,11 @@
                 </div>
             </div>
             <!-- Registrtion tab end -->
+            <!-- ===================================== Prescription ====================================== -->
             <!-- Prescription tab start -->
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle2" class="accordion-toggle" name="toggle">
-                <label for="toggle2">2. Prescription</label>
+                <label for="toggle2">02. Prescription System</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <div class="col-xl-12 col-md-6">
@@ -179,30 +158,44 @@
                                                         class="btn btn-danger btn-xs"
                                                         onclick="return confirm('Are You Sure To Delete ?')">X</a>
                                                 </td>
-                                                <td scope="row" style="text-align:center">{{ row.id }}</td>
-                                                <td class="des-class" style="text-align:left">{{ row.work_des }}</td>
-                                                <td class="reqby-class" style="text-align:center">{{ row.req_by }}</td>
-                                                <td class="reqtype-class" style="text-align:center">{{ row.req_type }}
+                                                <td scope="row" style="text-align:center" id="pres_id{{row.id}}">{{
+                                                    row.id }}</td>
+                                                <td class="des-class" style="text-align:left"
+                                                    id="pres_work_des{{row.id}}">{{ row.work_des }}</td>
+                                                <td class="reqby-class" style="text-align:center"
+                                                    id="pres_req_by{{row.id}}">{{ row.req_by }}</td>
+                                                <td class="reqtype-class" style="text-align:center"
+                                                    id="pres_req_type{{row.id}}">{{ row.req_type }}
                                                 </td>
-                                                <td class="status-class" style="text-align:center">{{ row.status }}</td>
-                                                <td class="priority-class" style="text-align:center">{{ row.priority }}
+                                                <td class="status-class" style="text-align:center"
+                                                    id="pres_status{{row.id}}">{{ row.status }}</td>
+                                                <td class="priority-class" style="text-align:center"
+                                                    id="pres_priority{{row.id}}">{{ row.priority }}
                                                 </td>
-                                                <td class="devstatus-class" style="text-align:center">{{ row.dev_status
+                                                <td class="devstatus-class" style="text-align:center"
+                                                    id="pres_dev_status{{row.id}}">{{ row.dev_status
                                                     }}</td>
-                                                <td class="qastatus-class" style="text-align:center">{{ row.qa_status }}
+                                                <td class="qastatus-class" style="text-align:center"
+                                                    id="pres_qa_status{{row.id}}">{{ row.qa_status }}
                                                 </td>
-                                                <td class="assignedto-class" style="text-align:center">{{
+                                                <td class="assignedto-class" style="text-align:center"
+                                                    id="pres_assigned_to{{row.id}}">{{
                                                     row.assigned_to }}</td>
-                                                <td class="hours-class" style="text-align:center">{{ row.hours }}</td>
+                                                <td class="hours-class" style="text-align:center"
+                                                    id="pres_hours{{row.id}}">{{ row.hours }}</td>
                                                 <td class="reqdate-class" style="text-align:center">{{ row.req_date }}
                                                 </td>
-                                                <td class="startdate-class" style="text-align:center">{{ row.start_date
+                                                <td class="startdate-class" style="text-align:center"
+                                                    id="pres_startdate{{row.id}}">{{ row.start_date
                                                     }}</td>
-                                                <td class="enddate-class" style="text-align:center">{{ row.end_date }}
+                                                <td class="enddate-class" style="text-align:center"
+                                                    id="pres_enddate{{row.id}}">{{ row.end_date }}
                                                 </td>
-                                                <td class="comments-class" style="text-align:left">{{ row.comments }}
+                                                <td class="comments-class" style="text-align:left"
+                                                    id="pres_comments{{row.id}}">{{ row.comments }}
                                                 </td>
-                                                <td class="referance-class" style="text-align:left">{{ row.referance }}
+                                                <td class="referance-class" style="text-align:left"
+                                                    id="pres_referance{{row.id}}">{{ row.referance }}
                                                 </td>
                                             </tr>
                                             {% endfor %}
@@ -216,108 +209,262 @@
                 </div>
             </div>
             <!-- Prescription tab end-->
+            <!-- ===================================== Admission ====================================== -->
+            <!-- Admission tab start-->
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle3" class="accordion-toggle" name="toggle">
-                <label for="toggle3">3. Registation 3</label>
+                <label for="toggle3">03. Admission</label>
                 <div class="accordion-content">
                     <!-- containt start -->
-                    <p>Sunny</p>
+                    <div class="col-xl-12 col-md-6">
+                        <div class="table_header">
+                            <div class="add-medicine-botton">
+                                <div class="add-botton">
+                                    <button type="button" class="useraddbtn" data-bs-toggle="modal"
+                                        data-bs-target="#add_admission_service_data"><i
+                                            class='bx bx-add-to-queue'></i>Add</button>
+                                </div>
+                            </div>
+                            <form action="/add/admission/data" method="POST">
+                                <div class="table-body">
+                                    <table id="admission_data" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="delete-class">Action</th>
+                                                <th scope="col">S/N</th>
+                                                <th scope="col" class="des-class">Work Description</th>
+                                                <th scope="col" class="reqby-class">Req. By</th>
+                                                <th scope="col" class="reqtype-class">Req. Type</th>
+                                                <th scope="col" class="status-class">Status</th>
+                                                <th scope="col" class="priority-class">Priority</th>
+                                                <th scope="col" class="devstatus-class">Dev. Status</th>
+                                                <th scope="col" class="qastatus-class">QA Status</th>
+                                                <th scope="col" class="assignedto-class">Assigned to</th>
+                                                <th scope="col" class="hours-class">Hours hrs</th>
+                                                <th scope="col" class="reqdate-class">Req. Date</th>
+                                                <th scope="col" class="startdate-class">Start Date</th>
+                                                <th scope="col" class="enddate-class">End Date</th>
+                                                <th scope="col" class="comments-class">Comments</th>
+                                                <th scope="col" class="referance-class">Reference</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="rowselector">
+                                            {% for row in admission %}
+                                            <tr class="tablecell">
+                                                <td style="text-align:center; background: rgb(203, 224, 230);">
+                                                    <a href="/admission/delete/{{row.id}}" class="btn btn-danger btn-xs"
+                                                        onclick="return confirm('Are You Sure To Delete ?')">X</a>
+                                                </td>
+                                                <td scope="row" style="text-align:center" id="admsn_id{{row.id}}">{{
+                                                    row.id }}</td>
+                                                <td class="des-class" style="text-align:left"
+                                                    id="admsn_work_des{{row.id}}">{{
+                                                    row.work_des }}</td>
+                                                <td class="reqby-class" style="text-align:center"
+                                                    id="admsn_req_by{{row.id}}">{{row.req_by }}</td>
+                                                <td class="reqtype-class" style="text-align:center"
+                                                    id="admsn_req_type{{row.id}}">{{ row.req_type }}</td>
+                                                <td class="status-class" style="text-align:center"
+                                                    id="admsn_status{{row.id}}">{{ row.status }}</td>
+                                                <td class="priority-class" style="text-align:center"
+                                                    id="admsn_priority{{row.id}}">{{ row.priority }}</td>
+                                                <td class="devstatus-class" style="text-align:center"
+                                                    id="admsn_dev_status{{row.id}}">{{ row.dev_status}}</td>
+                                                <td class="qastatus-class" style="text-align:center"
+                                                    id="admsn_qa_status{{row.id}}">{{ row.qa_status }}</td>
+                                                <td class="assignedto-class" style="text-align:center"
+                                                    id="admsn_assigned_to{{row.id}}">
+                                                    {{row.assigned_to }}</td>
+                                                <td class="hours-class" style="text-align:center"
+                                                    id="admsn_hours{{row.id}}">{{row.hours }}</td>
+                                                <td class="reqdate-class" style="text-align:center">{{ row.req_date }}
+                                                </td>
+                                                <td class="startdate-class" style="text-align:center"
+                                                    id="admsn_startdate{{row.id}}">{{ row.start_date}}</td>
+                                                <td class="enddate-class" style="text-align:center"
+                                                    id="admsn_enddate{{row.id}}">{{ row.end_date }}</td>
+                                                <td class="comments-class" style="text-align:left"
+                                                    id="admsn_comments{{row.id}}">{{ row.comments }}</td>
+                                                <td class="referance-class" style="text-align:left"
+                                                    id="admsn_referance{{row.id}}">{{ row.referance }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <!-- containt end  -->
                 </div>
             </div>
+            <!-- Admission tab end-->
+            <!-- ===================================== billing ====================================== -->
+            <!-- Billing system tab start-->
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle4" class="accordion-toggle" name="toggle">
-                <label for="toggle4">4. Registation 4</label>
+                <label for="toggle4">04. Billing System</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <div class="col-xl-12 col-md-6">
+                        <div class="table_header">
+                            <div class="add-medicine-botton">
+                                <div class="add-botton">
+                                    <button type="button" class="useraddbtn" data-bs-toggle="modal"
+                                        data-bs-target="#add_billing_service_data"><i
+                                            class='bx bx-add-to-queue'></i>Add</button>
+                                </div>
+                            </div>
+                            <form action="/add/billing/data" method="POST">
+                                <div class="table-body">
+                                    <table id="billing_data" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="delete-class">Action</th>
+                                                <th scope="col">S/N</th>
+                                                <th scope="col" class="des-class">Work Description</th>
+                                                <th scope="col" class="reqby-class">Req. By</th>
+                                                <th scope="col" class="reqtype-class">Req. Type</th>
+                                                <th scope="col" class="status-class">Status</th>
+                                                <th scope="col" class="priority-class">Priority</th>
+                                                <th scope="col" class="devstatus-class">Dev. Status</th>
+                                                <th scope="col" class="qastatus-class">QA Status</th>
+                                                <th scope="col" class="assignedto-class">Assigned to</th>
+                                                <th scope="col" class="hours-class">Hours hrs</th>
+                                                <th scope="col" class="reqdate-class">Req. Date</th>
+                                                <th scope="col" class="startdate-class">Start Date</th>
+                                                <th scope="col" class="enddate-class">End Date</th>
+                                                <th scope="col" class="comments-class">Comments</th>
+                                                <th scope="col" class="referance-class">Reference</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="rowselector">
+                                            {% for row in billing %}
+                                            <tr class="tablecell">
+                                                <td style="text-align:center; background: rgb(203, 224, 230);">
+                                                    <a href="/billing/delete/{{row.id}}" class="btn btn-danger btn-xs"
+                                                        onclick="return confirm('Are You Sure To Delete ?')">X</a>
+                                                </td>
+                                                <td scope="row" style="text-align:center" id="billing_id{{row.id}}">{{
+                                                    row.id }}</td>
+                                                <td class="des-class" style="text-align:left"
+                                                    id="billing_work_des{{row.id}}">{{
+                                                    row.work_des }}</td>
+                                                <td class="reqby-class" style="text-align:center"
+                                                    id="billing_req_by{{row.id}}">{{row.req_by }}</td>
+                                                <td class="reqtype-class" style="text-align:center"
+                                                    id="billing_req_type{{row.id}}">{{ row.req_type }}</td>
+                                                <td class="status-class" style="text-align:center"
+                                                    id="billing_status{{row.id}}">{{ row.status }}</td>
+                                                <td class="priority-class" style="text-align:center"
+                                                    id="billing_priority{{row.id}}">{{ row.priority }}</td>
+                                                <td class="devstatus-class" style="text-align:center"
+                                                    id="billing_dev_status{{row.id}}">{{ row.dev_status}}</td>
+                                                <td class="qastatus-class" style="text-align:center"
+                                                    id="billing_qa_status{{row.id}}">{{ row.qa_status }}</td>
+                                                <td class="assignedto-class" style="text-align:center"
+                                                    id="billing_assigned_to{{row.id}}">
+                                                    {{row.assigned_to }}</td>
+                                                <td class="hours-class" style="text-align:center"
+                                                    id="billing_hours{{row.id}}">{{row.hours }}</td>
+                                                <td class="reqdate-class" style="text-align:center">{{ row.req_date }}
+                                                </td>
+                                                <td class="startdate-class" style="text-align:center"
+                                                    id="billing_startdate{{row.id}}">{{ row.start_date}}</td>
+                                                <td class="enddate-class" style="text-align:center"
+                                                    id="billing_enddate{{row.id}}">{{ row.end_date }}</td>
+                                                <td class="comments-class" style="text-align:left"
+                                                    id="billing_comments{{row.id}}">{{ row.comments }}</td>
+                                                <td class="referance-class" style="text-align:left"
+                                                    id="billing_referance{{row.id}}">{{ row.referance }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <!-- Billing system tab end-->
+
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle5" class="accordion-toggle" name="toggle">
+                <label for="toggle5">05. Out Patient Department (OPD)</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
                     <!-- containt end -->
-                </div>
-            </div>
-            <div class="accordion-tab">
-                <input type="checkbox" id="toggle5" class="accordion-toggle" name="toggle">
-                <label for="toggle5">5. Registation 5</label>
-                <div class="accordion-content">
-                    <!-- containt start -->
-                    <p>Sunny</p>
-                    <!-- containt end  -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle6" class="accordion-toggle" name="toggle">
-                <label for="toggle6">6. Registation 6</label>
+                <label for="toggle6">06. In Patient Department (IPD)</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
-                    <!-- containt end -->
+                    <!-- containt end  -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle7" class="accordion-toggle" name="toggle">
-                <label for="toggle7">7. Registation 7</label>
+                <label for="toggle7">07. Radiology & Imaging</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
-                    <!-- containt end  -->
+                    <!-- containt end -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle8" class="accordion-toggle" name="toggle">
-                <label for="toggle8">8. Registation 8</label>
+                <label for="toggle8">08. Pathology & LIS</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
-                    <!-- containt end -->
+                    <!-- containt end  -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle9" class="accordion-toggle" name="toggle">
-                <label for="toggle9">9. Registation 9</label>
+                <label for="toggle9">09. Operation Theatre (OT) Management</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
-                    <!-- containt end  -->
+                    <!-- containt end -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle10" class="accordion-toggle" name="toggle">
-                <label for="toggle10">10. Registation 10</label>
+                <label for="toggle10">10. Emergency & Casualty</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
-                    <!-- containt end -->
+                    <!-- containt end  -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle11" class="accordion-toggle" name="toggle">
-                <label for="toggle11">11. Registation 11</label>
+                <label for="toggle11">11. Admin & Inventory / Med. Data Analysis</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
-                    <!-- containt end  -->
+                    <!-- containt end -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle12" class="accordion-toggle" name="toggle">
-                <label for="toggle12">12. Registation 12</label>
+                <label for="toggle12">12. EME Management</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
-                    <!-- containt end -->
+                    <!-- containt end  -->
                 </div>
             </div>
             <div class="accordion-tab">
                 <input type="checkbox" id="toggle13" class="accordion-toggle" name="toggle">
-                <label for="toggle13">13. Registation 13</label>
-                <div class="accordion-content">
-                    <!-- containt start -->
-                    <p>Sunny</p>
-                    <!-- containt end  -->
-                </div>
-            </div>
-            <div class="accordion-tab">
-                <input type="checkbox" id="toggle14" class="accordion-toggle" name="toggle">
-                <label for="toggle14">14. Registation 14</label>
+                <label for="toggle13">13. Electronic Medical Record (EMR)</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
@@ -325,8 +472,8 @@
                 </div>
             </div>
             <div class="accordion-tab">
-                <input type="checkbox" id="toggle15" class="accordion-toggle" name="toggle">
-                <label for="toggle15">15. Registation 15</label>
+                <input type="checkbox" id="toggle14" class="accordion-toggle" name="toggle">
+                <label for="toggle14">14. Duty Management</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
@@ -334,8 +481,80 @@
                 </div>
             </div>
             <div class="accordion-tab">
+                <input type="checkbox" id="toggle15" class="accordion-toggle" name="toggle">
+                <label for="toggle15">15. Information Desk</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
                 <input type="checkbox" id="toggle16" class="accordion-toggle" name="toggle">
-                <label for="toggle16">16. Registation 16</label>
+                <label for="toggle16">16. Diet & Kitchen</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end  -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle17" class="accordion-toggle" name="toggle">
+                <label for="toggle17">17. Intensive Care Unit</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle18" class="accordion-toggle" name="toggle">
+                <label for="toggle18">18. Laundry Management</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle19" class="accordion-toggle" name="toggle">
+                <label for="toggle19">19. Infertility</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle20" class="accordion-toggle" name="toggle">
+                <label for="toggle20">20. Medical Store & Pharmacy</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle21" class="accordion-toggle" name="toggle">
+                <label for="toggle21">21. Security & Access Control</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle22" class="accordion-toggle" name="toggle">
+                <label for="toggle22">22. Connectivity</label>
+                <div class="accordion-content">
+                    <!-- containt start -->
+                    <p>Sunny</p>
+                    <!-- containt end -->
+                </div>
+            </div>
+            <div class="accordion-tab">
+                <input type="checkbox" id="toggle23" class="accordion-toggle" name="toggle">
+                <label for="toggle23">23. Others Findings</label>
                 <div class="accordion-content">
                     <!-- containt start -->
                     <p>Sunny</p>
@@ -344,15 +563,27 @@
             </div>
         </div>
     </section>
-    <!-- add req registration modal start -->
+    <!-- add req registration modal link start -->
     {% include 'requirements_list/add_edit_data_registration.html' %}
-    <!-- add req registration modal end -->
-    <!-- add req prescription modal start -->
+    <!-- add req registration modal link end -->
+    <!-- add req prescription modal link start -->
     {% include 'requirements_list/add_edit_data_prescription.html' %}
-    <!-- add req prescription modal end -->
+    <!-- add req prescription modal link end -->
+    <!-- admission modal link start -->
+    {% include 'requirements_list/admission.html' %}
+    <!-- admission modal link end -->
+    <!-- billing modal link start -->
+    {% include 'requirements_list/billing_system.html' %}
+    <!-- billing modal link end -->
 </main>
 
 <!--========== MAIN JS ==========-->
+<!-- ajax library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- ajax library -->
+<!--Jquery Cdn -->
+<script src="https://code.jquery.com/jquery-3.5.1.js" nintegrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf8"
@@ -361,4 +592,284 @@
 <!-- manual srcpt link sart -->
 <script src="{{url_for('static', filename='add_requirement_style/js/add_requirement.js')}}"></script>
 <!-- manual srcpt link end -->
+
+<!-- <script>
+    $(document).on('submit', '#todo_form', function (e) {
+        console.log('hello');
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/add/billing/data',
+            data: {
+                work_des: $("#work_des").val(),
+                req_type: $("#req_type").val(),
+                status: $("#status").val(),
+                priority: $("#priority").val(),
+                dev_status: $("#dev_status").val(),
+                qa_status: $("#qa_status").val(),
+                req_by: $("#req_by").val(),
+                assigned_to: $("#assigned_to").val(),
+                hours: $("#hours").val(),
+                start_date: $("#start_date").val(),
+                end_date: $("#end_date").val(),
+                comments: $("#comments").val(),
+                referance: $("#referance").val()
+            },
+        });
+    });
+</script> -->
+
+
+
+<!-- double click modal  -->
+<!-- registration data modal start -->
+{% for row in registration %}
+<script>
+    // ID modal double click function
+    $('#regis_id{{row.id}}').on('dblclick', function () {
+        $('#edit_id_service_data{{row.id}}').modal('show');
+    });
+    // work des modal double click function
+    $('#regis_work_des{{row.id}}').on('dblclick', function () {
+        $('#edit_work_des_service_data{{row.id}}').modal('show');
+    });
+    // req by modal double click function
+    $('#regis_req_by{{row.id}}').on('dblclick', function () {
+        $('#edit_req_by_service_data{{row.id}}').modal('show');
+    });
+    // assigned to modal double click function
+    $('#regis_assigned_to{{row.id}}').on('dblclick', function () {
+        $('#edit_assigned_to_service_data{{row.id}}').modal('show');
+    });
+    // hours to modal double click function
+    $('#regis_hours{{row.id}}').on('dblclick', function () {
+        $('#edit_hours_service_data{{row.id}}').modal('show');
+    });
+    // start date to modal double click function
+    $('#regis_startdate{{row.id}}').on('dblclick', function () {
+        $('#edit_start_date_service_data{{row.id}}').modal('show');
+    });
+    // end date to modal double click function
+    $('#regis_enddate{{row.id}}').on('dblclick', function () {
+        $('#edit_end_date_service_data{{row.id}}').modal('show');
+    });
+    // comments to modal double click function
+    $('#regis_comments{{row.id}}').on('dblclick', function () {
+        $('#edit_comments_service_data{{row.id}}').modal('show');
+    });
+    // referance to modal double click function
+    $('#regis_referance{{row.id}}').on('dblclick', function () {
+        $('#edit_referance_service_data{{row.id}}').modal('show');
+    });
+    // req type to modal double click function
+    $('#regis_req_type{{row.id}}').on('dblclick', function () {
+        $('#edit_req_type_service_data{{row.id}}').modal('show');
+    });
+    // status to modal double click function
+    $('#regis_status{{row.id}}').on('dblclick', function () {
+        $('#edit_status_service_data{{row.id}}').modal('show');
+    });
+    // priority to modal double click function
+    $('#regis_priority{{row.id}}').on('dblclick', function () {
+        $('#edit_priority_service_data{{row.id}}').modal('show');
+    });
+    // dev status to modal double click function
+    $('#regis_dev_status{{row.id}}').on('dblclick', function () {
+        $('#edit_dev_status_service_data{{row.id}}').modal('show');
+    });
+    // qa status to modal double click function
+    $('#regis_qa_status{{row.id}}').on('dblclick', function () {
+        $('#edit_qa_status_service_data{{row.id}}').modal('show');
+    });
+</script>
+{% endfor %}
+<!-- registration data modal end -->
+
+<!-- Prescription data modal start -->
+{% for row in prescription %}
+<script>
+    // ID modal double click function
+    $('#pres_id{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_id_service_data{{row.id}}').modal('show');
+    });
+    // work des modal double click function
+    $('#pres_work_des{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_work_des_service_data{{row.id}}').modal('show');
+    });
+    // req by modal double click function
+    $('#pres_req_by{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_req_by_service_data{{row.id}}').modal('show');
+    });
+    // assigned to modal double click function
+    $('#pres_assigned_to{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_assigned_to_service_data{{row.id}}').modal('show');
+    });
+    // hours to modal double click function
+    $('#pres_hours{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_hours_service_data{{row.id}}').modal('show');
+    });
+    // start date to modal double click function
+    $('#pres_startdate{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_start_date_service_data{{row.id}}').modal('show');
+    });
+    // end date to modal double click function
+    $('#pres_enddate{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_end_date_service_data{{row.id}}').modal('show');
+    });
+    // comments to modal double click function
+    $('#pres_comments{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_comments_service_data{{row.id}}').modal('show');
+    });
+    // referance to modal double click function
+    $('#pres_referance{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_referance_service_data{{row.id}}').modal('show');
+    });
+    // req type to modal double click function
+    $('#pres_req_type{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_req_type_service_data{{row.id}}').modal('show');
+    });
+    // status to modal double click function
+    $('#pres_status{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_status_service_data{{row.id}}').modal('show');
+    });
+    // priority to modal double click function
+    $('#pres_priority{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_priority_service_data{{row.id}}').modal('show');
+    });
+    // dev status to modal double click function
+    $('#pres_dev_status{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_dev_status_service_data{{row.id}}').modal('show');
+    });
+    // qa status to modal double click function
+    $('#pres_qa_status{{row.id}}').on('dblclick', function () {
+        $('#edit_pres_qa_status_service_data{{row.id}}').modal('show');
+    });
+</script>
+{% endfor %}
+<!-- Prescription data modal end -->
+<!-- Admission data modal start -->
+{% for row in admission %}
+<script>
+    // ID modal double click function
+    $('#admsn_id{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_id_service_data{{row.id}}').modal('show');
+    });
+    // work des modal double click function
+    $('#admsn_work_des{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_work_des_service_data{{row.id}}').modal('show');
+    });
+    // req by modal double click function
+    $('#admsn_req_by{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_req_by_service_data{{row.id}}').modal('show');
+    });
+    // assigned to modal double click function
+    $('#admsn_assigned_to{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_assigned_to_service_data{{row.id}}').modal('show');
+    });
+    // hours to modal double click function
+    $('#admsn_hours{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_hours_service_data{{row.id}}').modal('show');
+    });
+    // start date to modal double click function
+    $('#admsn_startdate{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_start_date_service_data{{row.id}}').modal('show');
+    });
+    // end date to modal double click function
+    $('#admsn_enddate{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_end_date_service_data{{row.id}}').modal('show');
+    });
+    // comments to modal double click function
+    $('#admsn_comments{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_comments_service_data{{row.id}}').modal('show');
+    });
+    // referance to modal double click function
+    $('#admsn_referance{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_referance_service_data{{row.id}}').modal('show');
+    });
+    // req type to modal double click function
+    $('#admsn_req_type{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_req_type_service_data{{row.id}}').modal('show');
+    });
+    // status to modal double click function
+    $('#admsn_status{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_status_service_data{{row.id}}').modal('show');
+    });
+    // priority to modal double click function
+    $('#admsn_priority{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_priority_service_data{{row.id}}').modal('show');
+    });
+    // dev status to modal double click function
+    $('#admsn_dev_status{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_dev_status_service_data{{row.id}}').modal('show');
+    });
+    // qa status to modal double click function
+    $('#admsn_qa_status{{row.id}}').on('dblclick', function () {
+        $('#edit_admsn_qa_status_service_data{{row.id}}').modal('show');
+    });
+</script>
+{% endfor %}
+<!-- Admission data modal end -->
+
+<!-- billing data modal start -->
+{% for row in billing %}
+<script>
+    // ID modal double click function
+    $('#billing_id{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_id_service_data{{row.id}}').modal('show');
+    });
+    // work des modal double click function
+    $('#billing_work_des{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_work_des_service_data{{row.id}}').modal('show');
+    });
+    // req by modal double click function
+    $('#billing_req_by{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_req_by_service_data{{row.id}}').modal('show');
+    });
+    // assigned to modal double click function
+    $('#billing_assigned_to{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_assigned_to_service_data{{row.id}}').modal('show');
+    });
+    // hours to modal double click function
+    $('#billing_hours{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_hours_service_data{{row.id}}').modal('show');
+    });
+    // start date to modal double click function
+    $('#abilling_startdate{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_start_date_service_data{{row.id}}').modal('show');
+    });
+    // end date to modal double click function
+    $('#billing_enddate{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_end_date_service_data{{row.id}}').modal('show');
+    });
+    // comments to modal double click function
+    $('#billing_comments{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_comments_service_data{{row.id}}').modal('show');
+    });
+    // referance to modal double click function
+    $('#billing_referance{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_referance_service_data{{row.id}}').modal('show');
+    });
+    // req type to modal double click function
+    $('#billing_req_type{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_req_type_service_data{{row.id}}').modal('show');
+    });
+    // status to modal double click function
+    $('#billing_status{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_status_service_data{{row.id}}').modal('show');
+    });
+    // priority to modal double click function
+    $('#billing_priority{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_priority_service_data{{row.id}}').modal('show');
+    });
+    // dev status to modal double click function
+    $('#billing_dev_status{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_dev_status_service_data{{row.id}}').modal('show');
+    });
+    // qa status to modal double click function
+    $('#billing_qa_status{{row.id}}').on('dblclick', function () {
+        $('#edit_billing_qa_status_service_data{{row.id}}').modal('show');
+    });
+</script>
+{% endfor %}
+<!-- billing data modal end -->
 {% endblock %}

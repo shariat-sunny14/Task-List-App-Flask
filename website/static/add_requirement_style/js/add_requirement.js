@@ -1,5 +1,4 @@
 // row data select script start
-
 $('#data').on('click', 'tbody tr', function (event) {
     $(this).addClass('highlight').siblings().removeClass('highlight');
 });
@@ -135,10 +134,10 @@ for (var i = elements.length; i--;) {
 }
 // qa Status row value color change script end
 
-
-// table row filter page value always stay start
+// search filter page navigation and table row filter page value always stay start
 $(document).ready(function () {
-    $('#data, #prescription_data').dataTable({
+    $('#data, #prescription_data, #admission_data, #billing_data').DataTable({
+        // table row filter page value always stay start
         deferRender: true,
         paging: true,
         Destroy: true,
@@ -152,15 +151,10 @@ $(document).ready(function () {
         },
         stateLoadCallback: function (settings) {
             return JSON.parse(localStorage.getItem('DataTables' + settings.sInstance))
-        }
-    });
-}).Destroy();
-// table row filter page value always stay end
+        },
+        // table row filter page value always stay end
 
-
-// search filter page navigation start
-$(document).ready(function () {
-    $('#data, #prescription_data').DataTable({
+        // search filter page navigation start
         columns: [
             null,
             { searchable: true },
@@ -178,6 +172,7 @@ $(document).ready(function () {
             { orderable: true, searchable: true },
             { orderable: true, searchable: true },
             null]
+        // search filter page navigation end
     });
 });
-// search filter page navigation end
+// search filter page navigation and table row filter page value always stay end

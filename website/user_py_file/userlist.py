@@ -29,7 +29,7 @@ class RegisterForm(FlaskForm):
                             "placeholder": "Enter Your Last Name"})
     username = StringField(validators=[InputRequired()], render_kw={
                            "placeholder": "Enter Your Username"})
-    dept = StringField(render_kw={"placeholder": "Enter Your Dept."})
+    designation = StringField(render_kw={"placeholder": "Enter Your Designation"})
     email = StringField(validators=[InputRequired(), Length(
         min=8, max=40)], render_kw={"placeholder": "Enter Your Email"})
     address = StringField(render_kw={"placeholder": "Enter Your Address"})
@@ -64,7 +64,7 @@ def user_register():
                    'static/user_image/', img))
 
         new_user = User(users_id=form.users_id.data, first_name=form.first_name.data, last_name=form.last_name.data, username=form.username.data,
-                        dept=form.dept.data, email=form.email.data, address=form.address.data, mobile_number=form.mobile_number.data, password=hashed_password, user_img=img)
+                        designation=form.designation.data, email=form.email.data, address=form.address.data, mobile_number=form.mobile_number.data, password=hashed_password, user_img=img)
 
         db.session.add(new_user)
         db.session.commit()
@@ -81,7 +81,7 @@ def update():
         my_data.first_name = request.form['first_name']
         my_data.last_name = request.form['last_name']
         my_data.username = request.form['username']
-        my_data.dept = request.form['dept']
+        my_data.designation = request.form['designation']
         my_data.email = request.form['email']
         my_data.address = request.form['address']
         my_data.mobile_number = request.form['mobile_number']

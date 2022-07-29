@@ -1,5 +1,5 @@
-<!-- add req prescription modal start -->
-<div class="modal fade" id="add_prescription_service_data" tabindex="-1" aria-labelledby="exampleModalLabel"
+<!-- add req admission modal start -->
+<div class="modal fade" id="add_admission_service_data" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.add_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.add_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -45,8 +45,8 @@
                                         </option>
                                         <option value="Pending">Pending</option>
                                         <option value="Done">Done</option>
-                                        <option value="Not Done">Half Done</option>
-                                        <option value="Half Done">Not Done</option>
+                                        <option value="Half Done">Half Done</option>
+                                        <option value="Not Done">Not Done</option>
                                     </select>
                                 </div>
                             </div>
@@ -72,11 +72,10 @@
                                         aria-label="Default select example" required>
                                         <option value="" class="option_click" disabled selected hidden>Click Here
                                         </option>
-                                        <option value="On Going">On Going</option>
                                         <option value="Pending">Pending</option>
                                         <option value="Done">Done</option>
-                                        <option value="Not Done">Half Done</option>
-                                        <option value="Half Done">Not Done</option>
+                                        <option value="Half Done">Half Done</option>
+                                        <option value="Not Done">Not Done</option>
                                     </select>
                                 </div>
                             </div>
@@ -89,8 +88,8 @@
                                         </option>
                                         <option value="Pending">Pending</option>
                                         <option value="Done">Done</option>
-                                        <option value="Not Done">Half Done</option>
-                                        <option value="Half Done">Not Done</option>
+                                        <option value="Half Done">Half Done</option>
+                                        <option value="Not Done">Not Done</option>
                                     </select>
                                 </div>
                             </div>
@@ -157,13 +156,13 @@
         </div>
     </div>
 </div>
-<!-- add req prescription modal end -->
+<!-- add req admission modal end -->
 <!-- ======================================== Edit Data ========================================= -->
 <!-- ================== input box Edit Data ============================ -->
-<!-- Edit registration modal start -->
-{% for row in prescription %}
+<!-- Edit admission modal start -->
+{% for row in admission %}
 <!-- id edit -->
-<div class="modal fade" id="edit_pres_id_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_id_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -172,15 +171,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_id_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_id_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="col-form-label required">S/N</label>
                                     <input type="hidden" name="id" value="{{ row.id }}">
-                                    <input type="number" class="form-control edit_inputbox" name="id" id="id"
-                                        value="{{row.id}}" placeholder="Update S/N No. Here" required>
+                                    <input type="number" class="form-control edit_inputbox" name="id"
+                                        id="id" value="{{row.id}}"
+                                        placeholder="Update S/N No. Here" required>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,7 @@
 <!-- id edit end -->
 
 <!-- work_des edit-->
-<div class="modal fade" id="edit_pres_work_des_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_work_des_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -205,7 +205,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_work_des_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_work_des_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -230,7 +230,7 @@
 <!-- work_des edit end-->
 
 <!-- req_by edit -->
-<div class="modal fade" id="edit_pres_req_by_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_req_by_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -239,7 +239,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_req_by_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_req_by_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -263,7 +263,7 @@
 <!-- req_by edit end -->
 
 <!-- assigned_to edit -->
-<div class="modal fade" id="edit_pres_assigned_to_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_assigned_to_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -272,7 +272,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_assigned_to_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_assigned_to_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -297,7 +297,7 @@
 <!-- assigned_to edit end -->
 
 <!-- hours edit -->
-<div class="modal fade" id="edit_pres_hours_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_hours_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -306,7 +306,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_hours_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_hours_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -330,7 +330,7 @@
 <!-- hours edit end -->
 
 <!-- start_date edit -->
-<div class="modal fade" id="edit_pres_start_date_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_start_date_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -339,7 +339,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_start_date_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_start_date_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -363,7 +363,7 @@
 <!-- start_date edit end -->
 
 <!-- end_date edit -->
-<div class="modal fade" id="edit_pres_end_date_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_end_date_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -372,7 +372,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_end_date_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_end_date_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -396,7 +396,7 @@
 <!-- end_date edit end -->
 
 <!-- comments edit -->
-<div class="modal fade" id="edit_pres_comments_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_comments_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -405,7 +405,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_comments_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_comments_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -430,7 +430,7 @@
 <!-- comments edit end -->
 
 <!-- referance edit -->
-<div class="modal fade" id="edit_pres_referance_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_referance_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -439,7 +439,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_referance_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_referance_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -467,7 +467,7 @@
 <!-- =========================== selection option edit ========================= -->
 
 <!-- req_type edit -->
-<div class="modal fade" id="edit_pres_req_type_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_req_type_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -476,7 +476,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_req_type_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_req_type_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -506,7 +506,7 @@
 <!-- req_type edit end -->
 
 <!-- status edit -->
-<div class="modal fade" id="edit_pres_status_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_status_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -515,7 +515,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_status_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_status_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -545,7 +545,7 @@
 <!-- status edit end -->
 
 <!-- priority edit -->
-<div class="modal fade" id="edit_pres_priority_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_priority_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -554,7 +554,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_priority_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_priority_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -584,7 +584,7 @@
 <!-- priority edit end -->
 
 <!-- dev_status edit -->
-<div class="modal fade" id="edit_pres_dev_status_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_dev_status_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -593,7 +593,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_dev_status_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_dev_status_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -623,7 +623,7 @@
 <!-- dev_status edit end -->
 
 <!-- qa_status edit -->
-<div class="modal fade" id="edit_pres_qa_status_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="edit_admsn_qa_status_service_data{{row.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="edit_modal-content">
@@ -632,7 +632,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url_for('add_requirement.update_qa_status_prescription_data') }}">
+                <form method="POST" action="{{ url_for('add_requirement.update_qa_status_admission_data') }}">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -661,4 +661,4 @@
 {% endfor %}
 <!-- qa_status edit end -->
 
-<!-- Edit registration modal end -->
+<!-- Edit admission modal end -->

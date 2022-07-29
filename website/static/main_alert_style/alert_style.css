@@ -27,3 +27,11 @@
     width: fit-content;
     background: none;
 }
+
+.alert_icon{
+    float: left;
+    font-size: 28px;
+    line-height: 25px;
+    margin-right: 15px;
+    color: red;
+}
